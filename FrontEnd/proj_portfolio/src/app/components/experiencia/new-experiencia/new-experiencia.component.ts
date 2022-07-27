@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { SExperienciaService } from 'src/app/service/s-experiencia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-experiencia',
@@ -22,10 +23,10 @@ export class NewExperienciaComponent implements OnInit {
     const expe = new Experiencia(this.nombreE, this.descripcionE);
     this.sExperiencia.save(expe).subscribe(
       data => {
-        alert("Experiencia añadida");
+        Swal.fire('Experiencia Añadida','Ok!');
         this.router.navigate(['']);
       }, err => {
-        alert("Falló");
+        Swal.fire('Error al añadir la Experiencia','ERROR!');
         this.router.navigate(['']);
       }
     )

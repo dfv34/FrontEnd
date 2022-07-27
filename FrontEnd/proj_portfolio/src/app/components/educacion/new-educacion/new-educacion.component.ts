@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-educacion',
@@ -22,13 +23,13 @@ export class NewEducacionComponent implements OnInit {
   }
 
   onCreate(): void {
-    const expe = new Educacion(this.tituloEdU, this.fechainicioEdU, this.fechafinEdU, this.descEdU, this.imagenEdU);
-    this.sEducacion.save(expe).subscribe(
+    const educ = new Educacion(this.tituloEdU, this.fechainicioEdU, this.fechafinEdU, this.descEdU, this.imagenEdU);
+    this.sEducacion.save(educ).subscribe(
       data => {
-        alert("Educacion añadida");
+        Swal.fire('Educacion Añadida','Ok!');
         this.router.navigate(['']);
       }, err => {
-        alert("Falló");
+        Swal.fire('Error al añadir la Educación','ERROR!');
         this.router.navigate(['']);
       }
     )

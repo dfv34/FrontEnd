@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/model/proyecto';
 import { SProyectoService } from 'src/app/service/s-proyecto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-proyecto',
@@ -24,10 +25,11 @@ export class NewProyectoComponent implements OnInit {
     const proj = new Proyecto(this.nombrePro, this.fechaPro, this.descPro, this.imagenPro);
     this.sProyectoService.save(proj).subscribe(
       data => {
-        alert("Proyecto añadido");
+        Swal.fire('Proyecto añadido','Ok!');
+        
         this.router.navigate(['']);
       }, err => {
-        alert("Falló");
+        Swal.fire('Error al añadir el proyecto','ERROR!');
         this.router.navigate(['']);
       }
     )

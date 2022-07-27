@@ -11,6 +11,7 @@
         <table class="table">
             <tbody>
                 <tr *ngFor="let Proyecto of proy">
+                    <td><img src="{{Proyecto.imagenPro}}" alt="" width="50px"></td>
                     <td>
                         <h2>{{Proyecto.nombrePro}}</h2>
                     </td>
@@ -21,7 +22,7 @@
                             <i class="bi bi-pencil-fill"></i> </button>
                     </td>
                     <td *ngIf="isLogged">
-                        <button  (click)="delete(Proyecto.idPro)">
+                        <button  (click)="eliminarProyecto(Proyecto.idPro)">
                             <i class="bi bi-trash-fill"></i> </button>
                     </td>
                 </tr>

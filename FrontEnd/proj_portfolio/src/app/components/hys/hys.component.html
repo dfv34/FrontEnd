@@ -1,5 +1,5 @@
 <div class="row">
-    <h1>Habilidades</h1>
+    <h1>Hard & Soft Skills</h1>
     <div class="col-lg-2">
         <button type="button" class="btn btn-dark" routerLink="/nuevahab" *ngIf="isLogged">
             Nueva Habilidad
@@ -28,7 +28,7 @@
                             <i class="bi bi-pencil-fill"></i> </button>
                     </td>
                     <td *ngIf="isLogged">
-                        <button  (click)="delete(Hys.idSk)">
+                        <button  (click)="eliminarHys(Hys.idSk)">
                             <i class="bi bi-trash-fill"></i> </button>
                     </td>
                 </tr>

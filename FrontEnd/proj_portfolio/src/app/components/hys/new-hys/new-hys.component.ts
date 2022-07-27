@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Hys } from 'src/app/model/hys';
 import { SHysService } from 'src/app/service/s-hys.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-hys',
@@ -21,10 +22,11 @@ export class NewHysComponent implements OnInit {
     const hyse = new Hys (this.nombreSk, this.fotoSk, this.porcentSk);
     this.sHys.save(hyse).subscribe(
       data => {
-        alert("Habilidad añadida");
+        Swal.fire('Habilidad Añadida','Ok!');
+        
         this.router.navigate(['']);
       }, err => {
-        alert("Falló");
+        Swal.fire('Error al añadir la Habilidad','ERROR!');
         this.router.navigate(['']);
       }
     )

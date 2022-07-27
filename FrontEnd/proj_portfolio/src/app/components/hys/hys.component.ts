@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hys } from 'src/app/model/hys';
 import { SHysService } from 'src/app/service/s-hys.service';
 import { TokenService } from 'src/app/service/token.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -27,45 +28,39 @@ export class HysComponent implements OnInit {
     this.sHysService.lista().subscribe(data => { this.skills = data; })
   }
 
-  /*delete(id?:number){
-    swal({
+  
+
+  eliminarHys(id?:number){
+    Swal.fire({
       title: '¿Estas seguro?',
-      text: "Confirma si deseas eliminar la habilidad",
-      type: 'warning',
+      text: "Confirma si deseas eliminar el item",
+      icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si , elimínalo',
-      cancelButtonText: 'No, cancelar',
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: true
-    }).then((result: { value: any; }) => {
-      if(result.value){
-        this.sHysService.delete(id).subscribe(dato => {
-          console.log(dato);
-          this.cargarHys();
-          swal(
-            'Habilidad eliminada',
+      
+    }).then((result) => {
+      if(result.isConfirmed){
+        if(id != undefined){
+          this.sHysService.delete(id).subscribe(
+            data => {
+              this.cargarHys();
+            }, err => {
+              alert("No se pudo borrar el item seleccionado");
+            }
+          )
+        }
+          Swal.fire(
+            'La Habilidad',
             'ha sido eliminado con exito',
             'success'
           )
-        })
-      }
-    })
-  }*/
-
-  delete(id?: number){
-    if(id != undefined){
-      this.sHysService.delete(id).subscribe(
-        data => {
-          this.cargarHys();
-        }, err => {
-          alert("No se pudo borrar el item seleccionado");
         }
-      )
-    }
+      })
+    
   }
+
 
 
 }
