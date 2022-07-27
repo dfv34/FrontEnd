@@ -1,0 +1,33 @@
+<div class="container" *ngIf="proyLab">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="nombrePro">Proyecto:</label>
+                    <input type="text" class="form-control" id="nombrePro" name="nombrePro" [(ngModel)]="proyLab.nombrePro" required>
+                                       
+                </div>
+                <div class="form-group">
+                    <label for="fechaPro">Fecha:</label>
+                    <input type="date" class="form-control" id="fechaPro" name="fechaPro" [(ngModel)]="proyLab.fechaPro" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="descPro">Descripcion del Proyecto</label>
+                    <input type="text" class="form-control" id="descPro" name="descPro" [(ngModel)]="proyLab.descPro" required>
+                </div>
+                <div class="form-group">
+                    <label for="imagenPro">Url imagen</label>
+                    <input type="text" class="form-control" id="imagenPro" name="imagenPro" [(ngModel)]="proyLab.imagenPro" required>
+                    
+                </div>
+
+
+                <button class="btn btn-primary">
+                    Actualizar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+

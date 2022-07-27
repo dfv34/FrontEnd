@@ -1,0 +1,39 @@
+<div class="row">
+    <h1>Habilidades</h1>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dark" routerLink="/nuevahab" *ngIf="isLogged">
+            Nueva Habilidad
+        </button>
+    </div>
+    <div class="col lg 1"></div>
+    <div class="col-lg-11">
+        <table class="table">
+            <tbody>
+        
+      
+                <tr *ngFor="let Hys of skills">
+                    <td><img src="{{Hys.fotoSk}}" alt="" width="50px"></td>
+                    <td><h2>{{Hys.nombreSk}}</h2></td>
+                    
+                    <td>
+            
+            <h1 class="text-center">{{Hys.porcentSk}}  %</h1>
+            <mat-progress-bar mode="determinate" [value]="Hys.porcentSk"></mat-progress-bar>
+                     
+                
+                    </td>
+                    
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-light" routerLink="/edithys/{{Hys.idSk}}">
+                            <i class="bi bi-pencil-fill"></i> EDITAR</button>
+                    </td>
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-danger" (click)="delete(Hys.idSk)">
+                            <i class="bi bi-trash-fill"></i> BORRAR</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

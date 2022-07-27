@@ -1,0 +1,36 @@
+<div class="container" *ngIf="eduLab">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="tituloEdu">Titulo</label>
+                    <input type="text" class="form-control" id="tituloEdu" name="tituloEdu" [(ngModel)]="eduLab.tituloEdu" required>
+                   
+                </div>
+                <div class="form-group">
+                    <label for="fechainicioEdu">Fecha inicio</label>
+                    <input type="date" class="form-control" id="fechainicioEdu" name="fechainicioEdu" [(ngModel)]="eduLab.fechainicioEdu" required>
+                  
+                </div>
+                <div class="form-group">
+                    <label for="fechafinEdu">Fecha Fin</label>
+                    <input type="date" class="form-control" id="fechafinEdu" name="fechafinEdu" [(ngModel)]="eduLab.fechafinEdu" required>
+                  
+                </div>
+                <div class="form-group">
+                    <label for="descEdu">Descripcion del Estudio</label>
+                    <input type="text" class="form-control" id="descEdu" name="descEdu" [(ngModel)]="eduLab.descEdu" required>
+                </div>
+                <div class="form-group">
+                    <label for="imagenEdu">Url imagen</label>
+                    <input type="text" class="form-control" id="imagenEdu" name="imagenEdu" [(ngModel)]="eduLab.imagenEdu" required>
+                </div>
+
+
+                <button class="btn btn-primary">
+                    Actualizar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
