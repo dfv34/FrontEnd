@@ -11,6 +11,7 @@
         <table class="table">
             <tbody>
                 <tr *ngFor="let Educacion of educ">
+                    <td><img src="{{Educacion.imagenEdu}}" alt="" width="150px"></td>
                     <td>
                         <h2>{{Educacion.tituloEdu}}</h2>
                     </td>
@@ -18,12 +19,12 @@
                     <td>{{Educacion.fechafinEdu | date:'dd-MM-yyyy'}}</td>
                     <td>{{Educacion.descEdu}}</td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-light" routerLink="/editedu/{{Educacion.idEdu}}">
-                            <i class="bi bi-pencil-fill"></i> EDITAR</button>
+                        <button class="bi bi-pencil-fill" routerLink="/editedu/{{Educacion.idEdu}}">
+                            </button>
                     </td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-danger" (click)="delete(Educacion.idEdu)">
-                            <i class="bi bi-trash-fill"></i> BORRAR</button>
+                        <button (click)="delete(Educacion.idEdu)">
+                            <i class="bi bi-trash-fill"></i></button>
                     </td>
                 </tr>
             </tbody>

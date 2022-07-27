@@ -17,12 +17,12 @@
                     <td>{{Proyecto.fechaPro| date:'dd-MM-yyyy'}}</td>
                     <td>{{Proyecto.descPro}}</td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-light" routerLink="/editproy/{{Proyecto.idPro}}">
-                            <i class="bi bi-pencil-fill"></i> EDITAR</button>
+                        <button  routerLink="/editproy/{{Proyecto.idPro}}">
+                            <i class="bi bi-pencil-fill"></i> </button>
                     </td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-danger" (click)="delete(Proyecto.idPro)">
-                            <i class="bi bi-trash-fill"></i> BORRAR</button>
+                        <button  (click)="delete(Proyecto.idPro)">
+                            <i class="bi bi-trash-fill"></i> </button>
                     </td>
                 </tr>
             </tbody>

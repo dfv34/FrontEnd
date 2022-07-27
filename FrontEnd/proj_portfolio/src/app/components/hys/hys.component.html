@@ -24,12 +24,12 @@
                     </td>
                     
                     <td *ngIf="isLogged">
-                        <button class="btn btn-light" routerLink="/edithys/{{Hys.idSk}}">
-                            <i class="bi bi-pencil-fill"></i> EDITAR</button>
+                        <button  routerLink="/edithys/{{Hys.idSk}}">
+                            <i class="bi bi-pencil-fill"></i> </button>
                     </td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-danger" (click)="delete(Hys.idSk)">
-                            <i class="bi bi-trash-fill"></i> BORRAR</button>
+                        <button  (click)="delete(Hys.idSk)">
+                            <i class="bi bi-trash-fill"></i> </button>
                     </td>
                 </tr>
             </tbody>
